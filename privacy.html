@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — RailScope.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0f1f33;--ink:#16222f;--muted:#5f6f80;--blue:#2e6fd0;--blue-d:#225bb0;--bg:#f5f8fc;--line:#e3ecf6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:12px 22px;border-radius:9px;cursor:pointer;border:0;transition:.15s}
+  .btn-p{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(46,111,208,.32)}
+  .btn-p:hover{background:var(--blue-d)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:30px;height:70px}
+  .nav .logo{height:26px;width:auto}
+  .nav .links{display:flex;gap:26px;font-size:15px;font-weight:600;color:#33414f}
+  .nav .links a:hover,.nav .links a.active{color:var(--blue)}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:15px;font-weight:700}
+  .nav .right .signin{color:#33414f}
+
+  /* HEADER */
+  .lhead{background:radial-gradient(900px 360px at 75% -20%,#1d4670,transparent 55%),linear-gradient(160deg,#0f1f33,#13283f);color:#fff;text-align:center;padding:62px 28px 56px}
+  .lhead .eyebrow{font-size:13px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#5b9be8}
+  .lhead h1{font-size:40px;font-weight:900;letter-spacing:-.8px;margin:10px 0 8px}
+  .lhead p{font-size:16px;color:#c6d6ea}
+  .crumb{font-size:13px;color:#8ea6c2;margin-bottom:18px}
+  .crumb a{color:#bcd6f5}
+
+  /* DOC LAYOUT */
+  .doc-area{display:grid;grid-template-columns:240px 1fr;gap:48px;padding:54px 0 20px;align-items:start}
+  .toc{position:sticky;top:90px;font-size:13.5px}
+  .toc h4{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#9aa7b5;margin-bottom:12px}
+  .toc a{display:block;color:#56657a;padding:5px 0;border-left:2px solid var(--line);padding-left:12px;margin-left:-2px}
+  .toc a:hover{color:var(--blue);border-color:var(--blue)}
+
+  article{max-width:760px}
+  article .updated{font-size:13px;color:#8a97a6;margin-bottom:26px}
+  article .intro{font-size:16px;color:#33414f;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:30px}
+  article h2{font-size:21px;font-weight:800;margin:34px 0 10px;scroll-margin-top:90px;padding-top:6px}
+  article h3{font-size:16px;font-weight:700;color:#243140;margin:18px 0 6px}
+  article p{font-size:15px;color:#3c4a5a;margin-bottom:12px}
+  article ul{margin:6px 0 14px 20px}
+  article li{font-size:15px;color:#3c4a5a;margin-bottom:7px}
+  article .addr{font-size:14px;color:#46556a;background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:14px 16px;line-height:1.6}
+  .num{color:var(--blue);font-weight:800;margin-right:8px}
+
+  /* FOOTER */
+  footer{background:#0b1626;color:#9fb1c6;padding:56px 0 28px;margin-top:50px}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:34px}
+  .fcol h4{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#e7eef7;margin-bottom:14px}
+  .fcol a{display:block;font-size:14px;color:#9fb1c6;margin-bottom:9px}
+  .fcol a:hover{color:#fff}
+  .fbrand .logo{height:24px;margin-bottom:14px}
+  .fbrand p{font-size:14px;color:#7e93ab;max-width:260px}
+  .fbot{border-top:1px solid #1c2e42;margin-top:38px;padding-top:22px;display:flex;justify-content:space-between;font-size:13px;flex-wrap:wrap;gap:10px;color:#74879d}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav><div class="wrap nav">
+  <a href="index.html"><img class="logo" src="RailScope_logo.png" alt="RailScope"></a>
+  <div class="links">
+    <a href="index.html#features">Product</a>
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#uses">Solutions</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="legal.html" class="active">Legal</a>
+  </div>
+  <div class="right">
+    <a class="signin" href="#">Sign in</a>
+    <a class="btn btn-p" href="index.html#pricing">Start free</a>
+  </div>
+</div></nav>
+
+<!-- HEADER -->
+<header class="lhead">
+  <div class="crumb"><a href="legal.html">Legal</a> &nbsp;/&nbsp; Privacy Policy</div>
+  <div class="eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p>How RailScope collects, uses, and protects your information</p>
+</header>
+
+<!-- DOCUMENT -->
+<div class="wrap"><div class="doc-area">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h4>On this page</h4>
+    <a href="#collect">1. The Info We Collect and Why</a>
+    <a href="#protect">2. How We Protect Your Information</a>
+    <a href="#thirdparties">3. The Third Parties We Work With</a>
+    <a href="#disclosure">4. Disclosure to Third Parties</a>
+    <a href="#rights">5. Your Rights to Your Information</a>
+    <a href="#cookies">6. Cookies &amp; Similar Technologies</a>
+    <a href="#california">7. California Privacy</a>
+    <a href="#children">8. Children and Privacy</a>
+    <a href="#marketing">9. Marketing and You</a>
+    <a href="#changes">10. Changes to This Policy</a>
+    <a href="#contact">11. Contact Information</a>
+  </nav>
+
+  <!-- BODY -->
+  <article>
+    <div class="updated">Last updated: June 3, 2026</div>
+
+    <div class="intro">RailScope,&nbsp;Inc. (&ldquo;RailScope,&rdquo; &ldquo;we,&rdquo; or &ldquo;us&rdquo;) is committed to respecting your
+      online privacy and recognizes your need for appropriate protection and management of any personally identifiable
+      information. This Privacy Policy applies to personal data you provide through our websites, applications, and
+      electronic communications. By accessing or using our services you agree to this policy, and your continued use
+      after any update constitutes acceptance of the revised policy.</div>
+
+    <h2 id="collect"><span class="num">1.</span>The Info We Collect and Why</h2>
+    <p>RailScope collects personal information to provide our products and services for network analysis and
+      troubleshooting.</p>
+    <h3>Identifying contact information</h3>
+    <p>Names, email addresses, phone numbers, and social-media account names used to contact RailScope. This data is
+      retained indefinitely unless otherwise directed, so we can confirm account ownership, inform you of developments,
+      and provide customer support.</p>
+    <h3>Account credentials</h3>
+    <p>Usernames and passwords for the RailScope account system are stored for account management.</p>
+    <h3>Support records</h3>
+    <p>Customer-support conversations, including attachments, are saved to provide better support and inform future
+      service and product development, and retained indefinitely unless you direct otherwise.</p>
+    <h3>Alert (SMTP) data</h3>
+    <p>Information used by the email-alert feature (usernames, passwords, return addresses) is stored locally on your
+      own device and may be deleted by you at any time.</p>
+    <h3>Local trace targets</h3>
+    <p>IP addresses and DNS names you enter in RailScope Desktop are stored locally. They are neither accessible nor
+      viewable by anyone other than you and may be deleted at any time.</p>
+    <h3>RailScope Cloud data</h3>
+    <p>When you use RailScope Cloud, trace data is stored on our cloud infrastructure provider&rsquo;s servers for the
+      duration of your Cloud subscription and can be deleted through the interface. Account credentials are stored
+      indefinitely unless you direct otherwise.</p>
+
+    <h2 id="protect"><span class="num">2.</span>How We Protect Your Information</h2>
+    <p>RailScope maintains physical, electronic, and procedural safeguards reasonably necessary to ensure the protection
+      of your personal information. All employees receive security education, and only authorized staff may access
+      stored data, and only for explicit purposes.</p>
+    <p>You are responsible for keeping your password confidential and should not share your credentials. While we work to
+      protect your information, no method of transmission over the internet is completely secure. RailScope maintains an
+      established protocol for managing any potential data breach; related inquiries may be directed to our Data
+      Protection Officer at <a href="#" style="color:#2e6fd0;font-weight:600">privacy@railscope.ai</a>.</p>
+
+    <h2 id="thirdparties"><span class="num">3.</span>The Third Parties We Work With</h2>
+    <h3>Payment processors</h3>
+    <p>Stripe and FastSpring handle payments in accordance with the PCI Data Security Standard. RailScope does not
+      access or save any payment information, such as credit-card numbers.</p>
+    <h3>Cloud infrastructure</h3>
+    <p>Our cloud provider stores RailScope Cloud trace data. At no point does the provider view or access this data.</p>
+    <h3>Hosting</h3>
+    <p>Our hosting partner stores personal information but does not access or view any of your personal information.</p>
+    <h3>External links</h3>
+    <p>Our websites may contain links to external sites subject to those sites&rsquo; own privacy policies. We will never
+      knowingly link to an external site we believe may pose a risk.</p>
+    <h3>International transfer</h3>
+    <p>Personal information is stored and processed on servers located within the United States. If you are not a U.S.
+      resident, you agree to the global transfer, processing, and storage of your personal information.</p>
+
+    <h2 id="disclosure"><span class="num">4.</span>Disclosure of Information to Third Parties</h2>
+    <p>RailScope does not and will not disclose any of your personal information to third parties under any
+      circumstance, except as described below.</p>
+    <ul>
+      <li><b>Law enforcement.</b> We disclose information only when subpoenaed or otherwise legally compelled, and only
+          to the extent required by law.</li>
+      <li><b>Business partners.</b> We may disclose personal information to our subsidiaries, affiliates, contractors,
+          service providers, and other third parties we use to support certain business functions, such as order
+          fulfillment, payment processing, email delivery, or marketing.</li>
+      <li><b>Business acquisition.</b> If RailScope is acquired or its assets transferred, personal information may be
+          included as a means to continue your service, used in the manner described in this Privacy Policy.</li>
+    </ul>
+    <p>At no point will RailScope sell your personal information to a third party for commercial purposes.</p>
+
+    <h2 id="rights"><span class="num">5.</span>Your Rights to Your Information</h2>
+    <p>You have the right to access and control the personal information we hold about you. To audit, correct, modify, or
+      delete your personal information, email <a href="#" style="color:#2e6fd0;font-weight:600">privacy@railscope.ai</a>.
+      Complete deletion may not be possible where the information is necessary to provide a service you have paid for, or
+      where we are required by law to keep it; in such cases we will notify you of what is retained and why.</p>
+
+    <h2 id="cookies"><span class="num">6.</span>Cookies and Similar Technologies</h2>
+    <p>&ldquo;Cookies&rdquo; are short strings of information collected when you visit our site in order to enhance your
+      web-browsing experience, for example by storing preferences such as items in a shopping cart. You can modify your
+      web browser to prevent the collection of cookies, although doing so may impact your browsing activities. Your
+      browser&rsquo;s Help section provides instructions for disabling cookies.</p>
+
+    <h2 id="california"><span class="num">7.</span>California Privacy</h2>
+    <p>California Civil Code Section 1798.83 permits California residents to request information about third-party
+      disclosures for direct-marketing purposes. To make such a request, contact
+      <a href="#" style="color:#2e6fd0;font-weight:600">privacy@railscope.ai</a> or write to us at the address below.</p>
+
+    <h2 id="children"><span class="num">8.</span>Children and Privacy</h2>
+    <p>Our websites, apps, and communications are not intended for children under the age of 16. RailScope does not
+      knowingly collect, store, or otherwise use any information provided by any person under the age of 16 without a
+      parent or guardian&rsquo;s consent. If a minor has submitted information, a parent or guardian should contact
+      <a href="#" style="color:#2e6fd0;font-weight:600">privacy@railscope.ai</a> so that it may be deleted.</p>
+
+    <h2 id="marketing"><span class="num">9.</span>Marketing and You</h2>
+    <p>RailScope may use your personal information to contact you regarding RailScope products and services, with your
+      consent and within legal constraints. You may opt out at any time using the &ldquo;unsubscribe&rdquo; link at the
+      bottom of any email, or by contacting <a href="#" style="color:#2e6fd0;font-weight:600">privacy@railscope.ai</a>.</p>
+    <p>By purchasing our products or services, you grant RailScope the right to use your company logo in marketing,
+      sales, and other communications solely to identify your company as a RailScope customer. Likewise, you receive the
+      right to use the RailScope logo solely to identify RailScope as a provider of services to your company. Any other
+      use requires prior written permission. You may opt out of logo use by contacting us.</p>
+
+    <h2 id="changes"><span class="num">10.</span>Changes to Our Privacy Policy</h2>
+    <p>We post changes to this policy on our website, with notice provided on the home page. Material changes are
+      communicated via email to your primary account address or by website notice. The date this Privacy Policy was last
+      revised is identified at the top of this page. You are responsible for maintaining a current email address and for
+      periodically checking this policy for updates.</p>
+
+    <h2 id="contact"><span class="num">11.</span>Contact Information</h2>
+    <p>For questions or concerns regarding this policy, or to contact our Data Protection Officer:</p>
+    <div class="addr">
+      <b>RailScope,&nbsp;Inc.</b><br>
+      1 Network Avenue, Suite 300<br>
+      Wilmington, DE 19801, USA<br>
+      Email: <a href="#" style="color:#2e6fd0;font-weight:600">privacy@railscope.ai</a>
+    </div>
+  </article>
+</div></div>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol fbrand">
+      <img class="logo" src="RailScope_logo_white.png" alt="RailScope">
+      <p>Internet troubleshooting for everyday users. See every slowdown, dropout, and disruption — and let AI solve it.</p>
+    </div>
+    <div class="fcol"><h4>Products</h4><a href="index.html#pricing">Cloud</a><a href="index.html#pricing">Professional</a><a href="index.html#pricing">Standard</a><a href="index.html#pricing">Free</a></div>
+    <div class="fcol"><h4>Solutions</h4><a href="index.html#uses">Contact Center</a><a href="index.html#uses">Helpdesk IT</a><a href="index.html#uses">VoIP &amp; Voice</a><a href="index.html#uses">Gaming</a></div>
+    <div class="fcol"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Blog</a><a href="#">Careers</a></div>
+    <div class="fcol"><h4>Legal</h4><a href="legal.html">All policies</a><a href="privacy.html">Privacy Policy</a><a href="eula.html">Desktop EULA</a><a href="legal.html">Cloud TOS</a></div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 RailScope.ai — All rights reserved.</span>
+    <span>support@railscope.ai · railscope.ai</span>
+  </div>
+</div></footer>
+
+</body>
+</html>
