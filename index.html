@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RailScope.ai — Internet troubles? See it. Solve it.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f1f33; --navy2:#16314f; --ink:#16222f; --muted:#5f6f80;
+    --blue:#2e6fd0; --blue-d:#225bb0; --blue-l:#5b9be8; --cyan:#37c2d8;
+    --green:#2faa5e; --bg:#f5f8fc; --bg2:#eef3fa; --line:#e3ecf6; --card:#fff;
+    --red:#e0556b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6;
+       -webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;
+       padding:12px 22px;border-radius:9px;cursor:pointer;border:0;transition:.15s}
+  .btn-p{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(46,111,208,.32)}
+  .btn-p:hover{background:var(--blue-d)}
+  .btn-g{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.30)}
+  .btn-o{background:#fff;color:var(--blue);border:1.5px solid var(--line)}
+  .eyebrow{font-size:13px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue)}
+  h2.sec{font-size:38px;font-weight:800;line-height:1.12;letter-spacing:-.5px;margin:10px 0 12px}
+  .lead{font-size:18px;color:var(--muted);max-width:620px}
+  .center{text-align:center} .center .lead{margin:0 auto}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:30px;height:70px}
+  .nav .logo{height:26px;width:auto}
+  .nav .links{display:flex;gap:26px;font-size:15px;font-weight:600;color:#33414f}
+  .nav .links a:hover{color:var(--blue)}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:15px;font-weight:700}
+  .nav .right .signin{color:#33414f}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;background:radial-gradient(1100px 600px at 78% -10%,#1d4670 0%,transparent 55%),
+        linear-gradient(160deg,#0f1f33 0%,#13283f 60%,#0d1b2c 100%);color:#fff;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.25;
+        background-image:linear-gradient(rgba(91,155,232,.10) 1px,transparent 1px),
+                         linear-gradient(90deg,rgba(91,155,232,.10) 1px,transparent 1px);
+        background-size:46px 46px;mask-image:radial-gradient(700px 420px at 30% 40%,#000,transparent 75%)}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:40px;
+        align-items:center;padding:74px 28px 86px}
+  .hero .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;
+        background:rgba(91,155,232,.14);border:1px solid rgba(91,155,232,.32);color:#bcd6f5;
+        padding:6px 13px;border-radius:30px;margin-bottom:20px}
+  .hero h1{font-size:54px;font-weight:900;line-height:1.04;letter-spacing:-1.2px}
+  .hero h1 .g{background:linear-gradient(90deg,#5b9be8,#37c2d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:19px;color:#c6d6ea;margin:20px 0 28px;max-width:520px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .note{margin-top:16px;font-size:13.5px;color:#8ea6c2}
+
+  /* product mockup */
+  .mock{background:#0b1626;border:1px solid #25415f;border-radius:14px;overflow:hidden;
+        box-shadow:0 30px 70px rgba(0,0,0,.5)}
+  .mock .bar{height:34px;background:#11223a;display:flex;align-items:center;gap:7px;padding:0 13px;border-bottom:1px solid #20374f}
+  .mock .bar i{width:9px;height:9px;border-radius:50%;background:#37485f}
+  .mock .bar .t{margin-left:10px;font-size:11px;color:#7e93ac;font-weight:600}
+  .mock .body{display:grid;grid-template-columns:1.1fr 1fr;gap:0}
+  .mock .hops{padding:14px;border-right:1px solid #1d3148}
+  .mock .hoprow{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:11px;color:#9fb4cc}
+  .mock .hoprow .n{width:16px;color:#5f7185}
+  .mock .dot{width:8px;height:8px;border-radius:50%}
+  .mock .ms{margin-left:auto;font-weight:700}
+  .mock .graph{padding:14px}
+
+  /* ---------- LOGO STRIP ---------- */
+  .strip{background:#fff;border-bottom:1px solid var(--line);padding:26px 0}
+  .strip .row{display:flex;align-items:center;justify-content:center;gap:46px;flex-wrap:wrap;opacity:.62}
+  .strip .row span{font-weight:800;font-size:19px;color:#7c8a99;letter-spacing:.5px}
+  .strip .lbl{text-align:center;font-size:13px;font-weight:700;letter-spacing:1px;color:#9aa7b5;
+        text-transform:uppercase;margin-bottom:16px}
+
+  /* ---------- PILLARS ---------- */
+  .pillars{padding:84px 0;background:#fff}
+  .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:46px}
+  .pill{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:26px 22px}
+  .pill .ic{width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,#2e6fd0,#37c2d8);
+        display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .pill .ic svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+  .pill h3{font-size:18px;font-weight:800;margin-bottom:6px}
+  .pill p{font-size:14.5px;color:var(--muted)}
+
+  /* ---------- FEATURE ROWS ---------- */
+  .feat{padding:76px 0}
+  .feat:nth-child(even){background:var(--bg)}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .frow.rev .ftext{order:2}
+  .ftext h2{font-size:32px;font-weight:800;line-height:1.15;letter-spacing:-.4px;margin:10px 0 14px}
+  .ftext .lead{font-size:17px}
+  .ftext ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+  .ftext li{display:flex;gap:10px;font-size:15px;color:#36465a;font-weight:500}
+  .ftext li svg{flex:0 0 20px;width:20px;height:20px;stroke:var(--green);fill:none;stroke-width:2.4;margin-top:2px}
+  .shot{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 50px rgba(20,49,79,.12);overflow:hidden}
+  .shot .sbar{height:30px;background:#f1f5fb;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px}
+  .shot .sbar i{width:8px;height:8px;border-radius:50%;background:#cdd8e6}
+  .shot .sbody{padding:18px}
+
+  /* AI card accent */
+  .ai .shot{background:linear-gradient(160deg,#0f1f33,#14304d);border:1px solid #24415f;color:#fff}
+  .ai .shot .sbar{background:#11223a;border-color:#20374f}
+  .ai-chat{display:flex;flex-direction:column;gap:12px}
+  .ai-msg{background:#16314f;border:1px solid #25446a;border-radius:12px;padding:12px 14px;font-size:13.5px;color:#cfe0f3}
+  .ai-msg.bot{background:linear-gradient(135deg,#1b3a5c,#1d2c45);border-color:#2e6fd0}
+  .ai-msg .who{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;margin-bottom:5px;color:#5b9be8}
+  .ai-msg.bad .who{color:#e0556b}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .how{padding:84px 0;background:var(--navy);color:#fff}
+  .hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:48px}
+  .step{position:relative;padding-top:8px}
+  .step .num{font-size:15px;font-weight:900;color:#0f1f33;background:linear-gradient(135deg,#5b9be8,#37c2d8);
+        width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .step h3{font-size:19px;font-weight:800;margin-bottom:8px}
+  .step p{font-size:15px;color:#aebfd4}
+
+  /* ---------- USE CASES ---------- */
+  .uses{padding:84px 0;background:#fff}
+  .ugrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+  .use{border:1px solid var(--line);border-radius:14px;padding:24px 20px;background:var(--bg)}
+  .use .ic{width:44px;height:44px;border-radius:11px;background:#e6f0fd;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .use .ic svg{width:23px;height:23px;stroke:var(--blue);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+  .use h3{font-size:16.5px;font-weight:800;margin-bottom:5px}
+  .use p{font-size:14px;color:var(--muted)}
+
+  /* ---------- DESKTOP VS CLOUD ---------- */
+  .editions{padding:80px 0;background:var(--bg)}
+  .etwo{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
+  .ecard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 14px 34px rgba(20,49,79,.07)}
+  .ecard .tag{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--blue)}
+  .ecard h3{font-size:24px;font-weight:800;margin:6px 0 8px}
+  .ecard p{font-size:15px;color:var(--muted);margin-bottom:14px}
+  .ecard ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .ecard li{display:flex;gap:9px;font-size:14.5px;color:#3a4a5c}
+  .ecard li svg{flex:0 0 18px;width:18px;height:18px;stroke:var(--green);fill:none;stroke-width:2.6}
+
+  /* ---------- PRICING ---------- */
+  .pricing{padding:84px 0;background:#fff}
+  .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px}
+  .plan{border:1px solid var(--line);border-radius:16px;padding:26px 22px;display:flex;flex-direction:column;background:#fff}
+  .plan.pop{border:2px solid var(--blue);box-shadow:0 22px 50px rgba(46,111,208,.18);position:relative}
+  .plan .flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;
+        font-size:11px;font-weight:800;letter-spacing:.8px;padding:5px 13px;border-radius:20px;text-transform:uppercase}
+  .plan h3{font-size:19px;font-weight:800}
+  .plan .price{font-size:38px;font-weight:900;letter-spacing:-1px;margin:8px 0 2px}
+  .plan .price small{font-size:15px;font-weight:600;color:var(--muted)}
+  .plan .desc{font-size:13.5px;color:var(--muted);min-height:38px;margin-bottom:16px}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin:6px 0 20px}
+  .plan li{display:flex;gap:9px;font-size:13.5px;color:#3a4a5c}
+  .plan li svg{flex:0 0 17px;width:17px;height:17px;stroke:var(--green);fill:none;stroke-width:2.6;margin-top:2px}
+  .plan .btn{justify-content:center;margin-top:auto}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .quotes{padding:80px 0;background:var(--bg)}
+  .qgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:42px}
+  .qcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 14px 34px rgba(20,49,79,.06)}
+  .qcard .stars{color:#f3b53f;font-size:17px;letter-spacing:2px;margin-bottom:12px}
+  .qcard p{font-size:16.5px;line-height:1.6;color:#283543;font-weight:500}
+  .qcard .who{margin-top:16px;font-size:14px;color:var(--muted)}
+  .qcard .who b{color:var(--ink)}
+
+  /* ---------- CTA ---------- */
+  .cta-band{background:radial-gradient(900px 400px at 70% 0%,#1d4670,transparent 60%),linear-gradient(150deg,#0f1f33,#13283f);
+        color:#fff;text-align:center;padding:80px 0}
+  .cta-band h2{font-size:42px;font-weight:900;letter-spacing:-.8px}
+  .cta-band p{font-size:19px;color:#c6d6ea;margin:14px 0 28px}
+  .cta-band .cta{display:flex;gap:14px;justify-content:center}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0b1626;color:#9fb1c6;padding:60px 0 30px}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:34px}
+  .fcol h4{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#e7eef7;margin-bottom:14px}
+  .fcol a{display:block;font-size:14px;color:#9fb1c6;margin-bottom:9px}
+  .fcol a:hover{color:#fff}
+  .fbrand .logo{height:24px;margin-bottom:14px}
+  .fbrand p{font-size:14px;color:#7e93ab;max-width:260px}
+  .fbot{border-top:1px solid #1c2e42;margin-top:40px;padding-top:22px;display:flex;justify-content:space-between;
+        font-size:13px;flex-wrap:wrap;gap:10px;color:#74879d}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav><div class="wrap nav">
+  <img class="logo" src="RailScope_logo.png" alt="RailScope">
+  <div class="links">
+    <a href="#features">Product</a>
+    <a href="#how">How it works</a>
+    <a href="#uses">Solutions</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#">Docs</a>
+  </div>
+  <div class="right">
+    <a class="signin" href="#">Sign in</a>
+    <a class="btn btn-p" href="#pricing">Start free</a>
+  </div>
+</div></nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="badge">⚡ Now with AI-powered diagnosis</span>
+    <h1>Internet troubles?<br><span class="g">See it. Solve it.</span></h1>
+    <p>Get visibility into every slowdown, dropout, and disruption between you and the
+       services you use — then let RailScope&rsquo;s AI pinpoint exactly where the problem is.</p>
+    <div class="cta">
+      <a class="btn btn-p" href="#pricing">Start free →</a>
+      <a class="btn btn-g" href="#how">▶ Watch 2-min demo</a>
+    </div>
+    <div class="note">Free forever for 1 connection · No credit card · Windows, macOS &amp; Linux</div>
+  </div>
+
+  <!-- product mockup -->
+  <div class="mock">
+    <div class="bar"><i></i><i></i><i></i><span class="t">RailScope — Trace to api.yourservice.com</span></div>
+    <div class="body">
+      <div class="hops">
+        <div class="hoprow"><span class="n">1</span><span class="dot" style="background:#2faa5e"></span> 192.168.1.1<span class="ms" style="color:#2faa5e">2 ms</span></div>
+        <div class="hoprow"><span class="n">2</span><span class="dot" style="background:#2faa5e"></span> 10.0.0.1<span class="ms" style="color:#2faa5e">6 ms</span></div>
+        <div class="hoprow"><span class="n">3</span><span class="dot" style="background:#37c2d8"></span> isp-gw.net<span class="ms" style="color:#37c2d8">14 ms</span></div>
+        <div class="hoprow"><span class="n">4</span><span class="dot" style="background:#f3b53f"></span> core2.isp.net<span class="ms" style="color:#f3b53f">48 ms</span></div>
+        <div class="hoprow"><span class="n">5</span><span class="dot" style="background:#e0556b"></span> peer.transit.net<span class="ms" style="color:#e0556b">119 ms ⚠</span></div>
+        <div class="hoprow"><span class="n">6</span><span class="dot" style="background:#37c2d8"></span> edge.cloud.net<span class="ms" style="color:#37c2d8">122 ms</span></div>
+        <div class="hoprow"><span class="n">7</span><span class="dot" style="background:#37c2d8"></span> api.yourservice<span class="ms" style="color:#37c2d8">124 ms</span></div>
+      </div>
+      <div class="graph">
+        <svg viewBox="0 0 230 150" width="100%">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#37c2d8" stop-opacity=".35"/><stop offset="1" stop-color="#37c2d8" stop-opacity="0"/>
+          </linearGradient></defs>
+          <g stroke="#1d3148" stroke-width="1"><line x1="0" y1="38" x2="230" y2="38"/><line x1="0" y1="76" x2="230" y2="76"/><line x1="0" y1="114" x2="230" y2="114"/></g>
+          <polygon points="6,110 34,96 62,104 90,70 118,88 146,40 174,58 202,46 224,52 224,150 6,150" fill="url(#g1)"/>
+          <polyline points="6,110 34,96 62,104 90,70 118,88 146,40 174,58 202,46 224,52" fill="none" stroke="#37c2d8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="120" y="20" width="58" height="40" fill="#e0556b" opacity=".10"/>
+          <text x="149" y="16" fill="#e0556b" font-family="Inter" font-size="8" font-weight="700" text-anchor="middle">packet loss</text>
+          <g fill="#37c2d8"><circle cx="146" cy="40" r="3"/></g>
+        </svg>
+        <div style="font-size:10px;color:#7e93ac;margin-top:6px">Latency &amp; packet loss · last 24h</div>
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<!-- ============ LOGO STRIP ============ -->
+<section class="strip"><div class="wrap">
+  <div class="lbl">Trusted by network teams everywhere</div>
+  <div class="row">
+    <span>Northwind</span><span>Acme&nbsp;Cloud</span><span>Helpdesk&nbsp;Co</span><span>VoiceStream</span><span>Tessellate</span><span>BluePeak</span>
+  </div>
+</div></section>
+
+<!-- ============ PILLARS ============ -->
+<section class="pillars" id="features"><div class="wrap center">
+  <span class="eyebrow">Why RailScope</span>
+  <h2 class="sec">Stop the guesswork. Start seeing.</h2>
+  <p class="lead">RailScope turns messy network data into a clear answer — so you know exactly what&rsquo;s wrong and who needs to fix it.</p>
+  <div class="pgrid" style="text-align:left">
+    <div class="pill"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l3-4 3 2 4-6"/></svg></div>
+      <h3>Take control</h3><p>Collect objective network data continuously and catch problems before they get worse.</p></div>
+    <div class="pill"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></div>
+      <h3>See clearly</h3><p>Visualize every hop between a device and an endpoint — in readable, real-time graphs.</p></div>
+    <div class="pill"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M21 3l-7 7"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <h3>Understand your network</h3><p>We break down the complex so you don&rsquo;t have to. Plain-English answers, not raw logs.</p></div>
+    <div class="pill"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>Act confidently</h3><p>Zero-in on the problem, make the fix, and share proof with your ISP or IT team.</p></div>
+  </div>
+</div></section>
+
+<!-- ============ FEATURE: TIMELINE ============ -->
+<section class="feat"><div class="wrap"><div class="frow">
+  <div class="ftext">
+    <span class="eyebrow">Track performance over time</span>
+    <h2>Every slowdown, on the record.</h2>
+    <p class="lead">RailScope watches your connection 24/7 and plots latency, packet loss, jitter and MOS on easy-to-read charts — so intermittent problems can&rsquo;t hide.</p>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Continuous monitoring across ICMP, TCP &amp; UDP</li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Latency, packet loss, jitter &amp; MOS in one timeline</li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Rewind to the exact moment the problem happened</li>
+    </ul>
+  </div>
+  <div class="shot"><div class="sbar"><i></i><i></i><i></i></div><div class="sbody">
+    <svg viewBox="0 0 460 220" width="100%">
+      <g stroke="#eef3fa" stroke-width="1"><line x1="0" y1="44" x2="460" y2="44"/><line x1="0" y1="96" x2="460" y2="96"/><line x1="0" y1="148" x2="460" y2="148"/><line x1="0" y1="200" x2="460" y2="200"/></g>
+      <defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e6fd0" stop-opacity=".22"/><stop offset="1" stop-color="#2e6fd0" stop-opacity="0"/></linearGradient></defs>
+      <polygon points="10,170 50,150 90,158 130,120 170,140 210,92 250,150 290,70 330,110 370,80 410,96 450,86 450,210 10,210" fill="url(#g2)"/>
+      <polyline points="10,170 50,150 90,158 130,120 170,140 210,92 250,150 290,70 330,110 370,80 410,96 450,86" fill="none" stroke="#2e6fd0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <g stroke="#e0556b" stroke-width="2"><line x1="250" y1="0" x2="250" y2="210" stroke-dasharray="4 4"/></g>
+      <circle cx="290" cy="70" r="4" fill="#2e6fd0"/>
+      <rect x="244" y="186" width="60" height="18" rx="9" fill="#fdebee"/><text x="274" y="199" fill="#e0556b" font-family="Inter" font-size="9" font-weight="700" text-anchor="middle">spike 11:42</text>
+    </svg>
+  </div></div>
+</div></div></section>
+
+<!-- ============ FEATURE: PERSPECTIVE ============ -->
+<section class="feat"><div class="wrap"><div class="frow rev">
+  <div class="ftext">
+    <span class="eyebrow">Perspective changes everything</span>
+    <h2>Test from where it actually hurts.</h2>
+    <p class="lead">See network metrics from a particular device&rsquo;s point of view. Discover every device on the local network and start a test in one click.</p>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Auto-discover local devices and endpoints</li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Name targets so reports read in plain English</li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Remote data collection from any worker&rsquo;s machine</li>
+    </ul>
+  </div>
+  <div class="shot"><div class="sbar"><i></i><i></i><i></i></div><div class="sbody">
+    <svg viewBox="0 0 460 220" width="100%" font-family="Inter">
+      <line x1="60" y1="110" x2="400" y2="40" stroke="#cdd9e8" stroke-width="2"/>
+      <line x1="60" y1="110" x2="400" y2="110" stroke="#cdd9e8" stroke-width="2"/>
+      <line x1="60" y1="110" x2="400" y2="180" stroke="#cdd9e8" stroke-width="2"/>
+      <g><circle cx="60" cy="110" r="26" fill="#e6f0fd" stroke="#2e6fd0" stroke-width="2"/><text x="60" y="114" font-size="10" font-weight="700" fill="#2e6fd0" text-anchor="middle">YOU</text></g>
+      <g fill="#fff" stroke="#37c2d8" stroke-width="2"><circle cx="400" cy="40" r="20"/><circle cx="400" cy="110" r="20"/><circle cx="400" cy="180" r="20"/></g>
+      <g font-size="8.5" fill="#5f6f80" text-anchor="middle"><text x="400" y="43">Cloud</text><text x="400" y="113">VoIP</text><text x="400" y="183">Game</text></g>
+      <g fill="#9fb4cc" font-size="8"><circle cx="230" cy="75" r="3" fill="#2faa5e"/><circle cx="230" cy="110" r="3" fill="#f3b53f"/><circle cx="230" cy="145" r="3" fill="#e0556b"/></g>
+    </svg>
+  </div></div>
+</div></div></section>
+
+<!-- ============ FEATURE: AI ============ -->
+<section class="feat ai"><div class="wrap"><div class="frow">
+  <div class="ftext">
+    <span class="eyebrow">Automated AI troubleshooting</span>
+    <h2>Close tickets faster with RailScope&nbsp;AI.</h2>
+    <p class="lead">Our AI reads your traces, finds the failing hop, and tells you what&rsquo;s wrong — and what to do about it — in plain language. No packet-analysis degree required.</p>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Pinpoints whether it&rsquo;s your WiFi, your ISP, or the server</li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Plain-English root cause &amp; suggested next step</li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Network quality score you can track over time</li>
+    </ul>
+  </div>
+  <div class="shot"><div class="sbar"><i></i><i></i><i></i></div><div class="sbody"><div class="ai-chat">
+    <div class="ai-msg"><div class="who">You asked</div>Why does my video keep freezing every afternoon?</div>
+    <div class="ai-msg bot bad"><div class="who">⚠ RailScope AI · Root cause</div>Packet loss of <b>14%</b> starts at hop 5 (<b>peer.transit.net</b>, your ISP&rsquo;s upstream) every day around 16:00 — not your WiFi or the server. Latency to that hop jumps from 14 ms to 119 ms under load.</div>
+    <div class="ai-msg bot"><div class="who">✓ RailScope AI · Do this</div>Share this timeline with your ISP and reference the daily 16:00 congestion at <b>peer.transit.net</b>. Network quality score: <b>62/100 — Poor</b>.</div>
+  </div></div></div>
+</div></div></section>
+
+<!-- ============ FEATURE: SHARE ============ -->
+<section class="feat"><div class="wrap"><div class="frow rev">
+  <div class="ftext">
+    <span class="eyebrow">Show, don&rsquo;t tell</span>
+    <h2>Proof your ISP can&rsquo;t argue with.</h2>
+    <p class="lead">Stop being told &ldquo;it&rsquo;s fine on our end.&rdquo; Share live, timestamped results as a link or snapshot — clear evidence of exactly where and when things break.</p>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>One-click shareable links &amp; exported reports</li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Live dashboards for distributed teams</li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Customizable alerts before users even notice</li>
+    </ul>
+  </div>
+  <div class="shot"><div class="sbar"><i></i><i></i><i></i></div><div class="sbody">
+    <svg viewBox="0 0 460 220" width="100%" font-family="Inter">
+      <rect x="20" y="20" width="420" height="40" rx="8" fill="#f1f6fc"/>
+      <circle cx="44" cy="40" r="10" fill="#2faa5e"/><text x="44" y="44" font-size="11" fill="#fff" font-weight="700" text-anchor="middle">✓</text>
+      <text x="66" y="37" font-size="12" font-weight="700" fill="#16222f">Report shared with ISP Support</text>
+      <text x="66" y="51" font-size="10" fill="#5f6f80">railscope.ai/r/8fa2c — live · timestamped</text>
+      <g><rect x="20" y="76" width="200" height="124" rx="8" fill="#fff" stroke="#e3ecf6"/>
+        <polyline points="34,176 64,160 94,168 124,140 154,150 184,118 206,128" fill="none" stroke="#2e6fd0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="34" y="98" font-size="10" font-weight="700" fill="#16222f">Latency 24h</text></g>
+      <g><rect x="236" y="76" width="204" height="124" rx="8" fill="#fff" stroke="#e3ecf6"/>
+        <rect x="252" y="150" width="18" height="34" fill="#cfe0f3"/><rect x="280" y="130" width="18" height="54" fill="#cfe0f3"/><rect x="308" y="158" width="18" height="26" fill="#cfe0f3"/><rect x="336" y="110" width="18" height="74" fill="#e0556b"/><rect x="364" y="146" width="18" height="38" fill="#cfe0f3"/><rect x="392" y="138" width="18" height="46" fill="#cfe0f3"/>
+        <text x="252" y="98" font-size="10" font-weight="700" fill="#16222f">Packet loss by hour</text></g>
+    </svg>
+  </div></div>
+</div></div></section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how"><div class="wrap center">
+  <span class="eyebrow" style="color:#5b9be8">How it works</span>
+  <h2 class="sec">From &ldquo;it&rsquo;s slow&rdquo; to root cause in minutes.</h2>
+  <div class="hgrid" style="text-align:left">
+    <div class="step"><div class="num">1</div><h3>Pick a target</h3><p>Enter any address — your game server, video call, or favorite site — or pick a device RailScope auto-discovers on your network.</p></div>
+    <div class="step"><div class="num">2</div><h3>RailScope traces every hop</h3><p>It continuously measures latency and packet loss along the entire path and records the timeline, so nothing slips by unseen.</p></div>
+    <div class="step"><div class="num">3</div><h3>AI pinpoints &amp; you share proof</h3><p>RailScope AI names the failing hop in plain English and hands you a shareable, timestamped report for your ISP or IT team.</p></div>
+  </div>
+</div></section>
+
+<!-- ============ USE CASES ============ -->
+<section class="uses" id="uses"><div class="wrap center">
+  <span class="eyebrow">Built for</span>
+  <h2 class="sec">Whoever the internet is letting down today.</h2>
+  <div class="ugrid" style="text-align:left">
+    <div class="use"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 12h3M8.5 10.5v3"/><circle cx="16" cy="11" r="1"/><circle cx="18.5" cy="13" r="1"/></svg></div>
+      <h3>Gamers</h3><p>Catch the lag spikes and packet loss ruining your match — and prove it&rsquo;s not you.</p></div>
+    <div class="use"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+      <h3>Remote workers</h3><p>Diagnose dropped calls and choppy video from your home setup in seconds.</p></div>
+    <div class="use"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+      <h3>IT &amp; helpdesk</h3><p>Close &ldquo;internet is slow&rdquo; tickets faster with objective, shareable evidence.</p></div>
+    <div class="use"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+      <h3>MSPs &amp; network admins</h3><p>Monitor thousands of remote endpoints and resolve issues before users call.</p></div>
+  </div>
+</div></section>
+
+<!-- ============ EDITIONS ============ -->
+<section class="editions"><div class="wrap center">
+  <span class="eyebrow">Desktop or Cloud</span>
+  <h2 class="sec">Two ways to run RailScope.</h2>
+  <div class="etwo" style="text-align:left">
+    <div class="ecard"><span class="tag">Desktop</span><h3>Test from a single machine</h3>
+      <p>Perfect for home users and small businesses pinpointing local problems.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Runs on Windows &amp; macOS</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Trace, timeline graphs &amp; alerts</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Free for 1 connection</li>
+      </ul>
+    </div>
+    <div class="ecard"><span class="tag">Cloud</span><h3>Monitor remote devices at scale</h3>
+      <p>For distributed teams troubleshooting worker internet and infrastructure.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Windows, macOS &amp; Linux agents</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Multiuser, dashboards, AI assistant &amp; SSO</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Thousands of targets across remote devices</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing"><div class="wrap center">
+  <span class="eyebrow">Pricing</span>
+  <h2 class="sec">Start free. Scale when you&rsquo;re ready.</h2>
+  <p class="lead">Every paid plan includes a 14-day free trial. Perpetual licenses and volume discounts available.</p>
+  <div class="plans" style="text-align:left">
+    <div class="plan"><h3>Free</h3><div class="price">$0</div><div class="desc">For home networks getting started.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>1 connection</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Live trace &amp; timeline graph</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Manual sharing</li>
+      </ul>
+      <a class="btn btn-o" href="#">Download free</a>
+    </div>
+    <div class="plan pop"><span class="flag">Most popular</span><h3>Standard</h3><div class="price">$6.99<small>/mo</small></div><div class="desc">Fix buffering &amp; gaming lag at home.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Up to 2 targets</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Continuous monitoring &amp; alerts</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Shareable reports</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>RailScope AI summaries</li>
+      </ul>
+      <a class="btn btn-p" href="#">Start free trial</a>
+    </div>
+    <div class="plan"><h3>Professional</h3><div class="price">$29<small>/mo</small></div><div class="desc">Onsite troubleshooting for offices.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Unlimited targets</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Jitter, MOS &amp; REST API</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Local network discovery</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Remote data collection</li>
+      </ul>
+      <a class="btn btn-o" href="#">Start free trial</a>
+    </div>
+    <div class="plan"><h3>Cloud</h3><div class="price">$90<small>/mo</small></div><div class="desc">Monitor remote teams at scale.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Customizable target volume</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Multiuser, dashboards &amp; SSO</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>AI troubleshooting assistant</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Network quality scoring</li>
+      </ul>
+      <a class="btn btn-o" href="#">Talk to sales</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="quotes"><div class="wrap center">
+  <span class="eyebrow">Loved by troubleshooters</span>
+  <h2 class="sec">Less finger-pointing. More fixing.</h2>
+  <div class="qgrid" style="text-align:left">
+    <div class="qcard"><div class="stars">★★★★★</div>
+      <p>&ldquo;The UI is simple and very easy to use. It does not require deep technical knowledge to operate and provides very accurate reports.&rdquo;</p>
+      <div class="who"><b>Verified User in IT</b> · TrustRadius</div></div>
+    <div class="qcard"><div class="stars">★★★★★</div>
+      <p>&ldquo;RailScope helped us determine which of our ISP circuits were performing well and when circuits needed to be serviced by the ISP themselves.&rdquo;</p>
+      <div class="who"><b>Verified Administrator in IT</b> · TrustRadius</div></div>
+  </div>
+</div></section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band"><div class="wrap">
+  <h2>Stop guessing. Start seeing.</h2>
+  <p>Download RailScope free and find the source of your network problems today.</p>
+  <div class="cta">
+    <a class="btn btn-p" href="#pricing">Start free →</a>
+    <a class="btn btn-g" href="#">Book a demo</a>
+  </div>
+</div></section>
+
+<!-- ============ FOOTER ============ -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol fbrand">
+      <img class="logo" src="RailScope_logo_white.png" alt="RailScope">
+      <p>Internet troubleshooting for everyday users. See every slowdown, dropout, and disruption — and let AI solve it.</p>
+    </div>
+    <div class="fcol"><h4>Products</h4><a href="#">Cloud</a><a href="#">Professional</a><a href="#">Standard</a><a href="#">Free</a></div>
+    <div class="fcol"><h4>Solutions</h4><a href="#">Contact Center</a><a href="#">Helpdesk IT</a><a href="#">VoIP &amp; Voice</a><a href="#">Gaming</a></div>
+    <div class="fcol"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Blog</a><a href="#">Careers</a></div>
+    <div class="fcol"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Desktop EULA</a><a href="#">Cloud TOS</a><a href="#">Security</a></div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 RailScope.ai — All rights reserved.</span>
+    <span>support@railscope.ai · railscope.ai</span>
+  </div>
+</div></footer>
+
+</body>
+</html>
