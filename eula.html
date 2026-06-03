@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>End User License Agreement — RailScope.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0f1f33;--ink:#16222f;--muted:#5f6f80;--blue:#2e6fd0;--blue-d:#225bb0;--bg:#f5f8fc;--line:#e3ecf6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:12px 22px;border-radius:9px;cursor:pointer;border:0;transition:.15s}
+  .btn-p{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(46,111,208,.32)}
+  .btn-p:hover{background:var(--blue-d)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:30px;height:70px}
+  .nav .logo{height:26px;width:auto}
+  .nav .links{display:flex;gap:26px;font-size:15px;font-weight:600;color:#33414f}
+  .nav .links a:hover,.nav .links a.active{color:var(--blue)}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:15px;font-weight:700}
+  .nav .right .signin{color:#33414f}
+
+  /* HEADER */
+  .lhead{background:radial-gradient(900px 360px at 75% -20%,#1d4670,transparent 55%),linear-gradient(160deg,#0f1f33,#13283f);color:#fff;text-align:center;padding:62px 28px 56px}
+  .lhead .eyebrow{font-size:13px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#5b9be8}
+  .lhead h1{font-size:40px;font-weight:900;letter-spacing:-.8px;margin:10px 0 8px}
+  .lhead p{font-size:16px;color:#c6d6ea}
+  .crumb{font-size:13px;color:#8ea6c2;margin-bottom:18px}
+  .crumb a{color:#bcd6f5}
+
+  /* DOC LAYOUT */
+  .doc-area{display:grid;grid-template-columns:240px 1fr;gap:48px;padding:54px 0 20px;align-items:start}
+  .toc{position:sticky;top:90px;font-size:13.5px}
+  .toc h4{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#9aa7b5;margin-bottom:12px}
+  .toc a{display:block;color:#56657a;padding:5px 0;border-left:2px solid var(--line);padding-left:12px;margin-left:-2px}
+  .toc a:hover{color:var(--blue);border-color:var(--blue)}
+
+  article{max-width:760px}
+  article .updated{font-size:13px;color:#8a97a6;margin-bottom:26px}
+  article .intro{font-size:16px;color:#33414f;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:30px}
+  article h2{font-size:21px;font-weight:800;margin:34px 0 10px;scroll-margin-top:90px;padding-top:6px}
+  article h3{font-size:16px;font-weight:700;color:#243140;margin:18px 0 6px}
+  article p{font-size:15px;color:#3c4a5a;margin-bottom:12px}
+  article ul{margin:6px 0 14px 20px}
+  article li{font-size:15px;color:#3c4a5a;margin-bottom:7px}
+  article .caps{font-size:13.5px;letter-spacing:.2px;color:#46556a;background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .num{color:var(--blue);font-weight:800;margin-right:8px}
+
+  /* FOOTER */
+  footer{background:#0b1626;color:#9fb1c6;padding:56px 0 28px;margin-top:50px}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:34px}
+  .fcol h4{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#e7eef7;margin-bottom:14px}
+  .fcol a{display:block;font-size:14px;color:#9fb1c6;margin-bottom:9px}
+  .fcol a:hover{color:#fff}
+  .fbrand .logo{height:24px;margin-bottom:14px}
+  .fbrand p{font-size:14px;color:#7e93ab;max-width:260px}
+  .fbot{border-top:1px solid #1c2e42;margin-top:38px;padding-top:22px;display:flex;justify-content:space-between;font-size:13px;flex-wrap:wrap;gap:10px;color:#74879d}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav><div class="wrap nav">
+  <a href="index.html"><img class="logo" src="RailScope_logo.png" alt="RailScope"></a>
+  <div class="links">
+    <a href="index.html#features">Product</a>
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#uses">Solutions</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="legal.html" class="active">Legal</a>
+  </div>
+  <div class="right">
+    <a class="signin" href="#">Sign in</a>
+    <a class="btn btn-p" href="index.html#pricing">Start free</a>
+  </div>
+</div></nav>
+
+<!-- HEADER -->
+<header class="lhead">
+  <div class="crumb"><a href="legal.html">Legal</a> &nbsp;/&nbsp; Desktop EULA</div>
+  <div class="eyebrow">Legal</div>
+  <h1>End User License Agreement</h1>
+  <p>RailScope Desktop — Standard &amp; Professional Editions</p>
+</header>
+
+<!-- DOCUMENT -->
+<div class="wrap"><div class="doc-area">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h4>On this page</h4>
+    <a href="#evaluation">1. Evaluation License</a>
+    <a href="#usage">2. Terms of Usage</a>
+    <a href="#ownership">3. Ownership</a>
+    <a href="#restrictions">4. Limitation on Use</a>
+    <a href="#liability">5. Limitation of Liability</a>
+    <a href="#key">6. Customer&rsquo;s Liability</a>
+    <a href="#warranty">7. Warranty</a>
+    <a href="#disclaimer">8. Warranty Disclaimer</a>
+    <a href="#export">9. Export Regulations</a>
+    <a href="#law">10. Governing Law</a>
+    <a href="#copyright">11. Copyright Notice</a>
+  </nav>
+
+  <!-- BODY -->
+  <article>
+    <div class="updated">Last updated: June 3, 2026</div>
+
+    <div class="intro">This End User License Agreement (the &ldquo;Agreement&rdquo;) is a legal agreement between you, the
+      &ldquo;end user&rdquo; or &ldquo;you&rdquo; (either as an individual or an entity), and RailScope,&nbsp;Inc., a Delaware
+      corporation (&ldquo;RailScope&rdquo;), for the RailScope Desktop software product, including any associated media,
+      documentation, and updates (the &ldquo;Product&rdquo;). By installing, copying, or otherwise using the Product, you
+      indicate your complete and unconditional acceptance of these terms and conditions. If you do not agree, do not
+      install or use the Product.</div>
+
+    <h2 id="evaluation"><span class="num">1.</span>Evaluation License</h2>
+    <p>RailScope grants you a non-exclusive license to use the Product for an evaluation period of fourteen (14) days
+      from the date you install the Product. At the end of the evaluation period, you must either purchase a license to
+      continue using the paid functionality of the Product, or continue using the free version of the Product with
+      limited functionality. Use of the Product beyond the evaluation period without a valid license is a violation of
+      this Agreement and applicable copyright law.</p>
+
+    <h2 id="usage"><span class="num">2.</span>Terms of Usage</h2>
+    <h3>Use Definition</h3>
+    <p>The Product is &ldquo;in use&rdquo; on a computer when it is loaded into temporary memory (RAM) or installed into
+      permanent storage (for example, a hard disk or other storage device) of that computer. This does not include a
+      copy installed on a network server for the sole purpose of distribution to other computers.</p>
+    <h3>License Definition</h3>
+    <p>Subject to your compliance with this Agreement, RailScope grants you a non-exclusive, non-transferable,
+      non-sublicensable, limited license to use the Product during the license term. No title to, or ownership of, the
+      Product is transferred to you.</p>
+    <h3>License Term</h3>
+    <p>The license term begins on the date that you register and purchase the license after the end of the evaluation
+      period, and ends when you dispose of the Product or when this Agreement is otherwise terminated. The license
+      terminates immediately, without notice, if you attempt to circumvent any technical protection measures in the
+      Product.</p>
+    <h3>Single-User License</h3>
+    <p>A single-user license allows one user to use the Product on any single computer, so long as the Product is not in
+      use simultaneously on any other computer. You may install the Product on more than one computer, provided it is not
+      used concurrently on more than one.</p>
+    <h3>Multi-Computer License</h3>
+    <p>A multi-computer license allows you to install and use the Product on any number of computers, provided that this
+      number does not exceed the limit set in the applicable license file.</p>
+
+    <h2 id="ownership"><span class="num">3.</span>Ownership</h2>
+    <p>RailScope retains all rights, title, and interest in and to the Product, including, but not limited to, all
+      copyrights, trademarks, trade secrets, trade names, proprietary rights, patents, titles, computer code,
+      audiovisual effects, themes, settings, artwork, and any other intellectual property rights. The Product is
+      protected by copyright and other intellectual-property laws and treaties.</p>
+
+    <h2 id="restrictions"><span class="num">4.</span>Limitation on Use</h2>
+    <p>You may not, and may not permit others to:</p>
+    <ul>
+      <li>permit other individuals to use the Product except under the terms expressly set out above;</li>
+      <li>modify, translate, reverse engineer, decompile, decrypt, extract, disassemble, or create derivative works
+          based on the Product;</li>
+      <li>copy the Product, except as expressly permitted in this Agreement;</li>
+      <li>sell, rent, lease, grant a security interest in, sublicense, or otherwise transfer rights to the Product; or</li>
+      <li>remove, alter, or obscure any proprietary notices, labels, or marks on the Product.</li>
+    </ul>
+
+    <h2 id="liability"><span class="num">5.</span>Limitation of Liability</h2>
+    <p>RailScope shall not in any event be liable for direct, indirect, special, incidental, or consequential damages
+      resulting from any defect in the Product or from its use or inability to be used, including, without limitation,
+      any loss of data or damage to equipment, even if RailScope or an authorized dealer has been advised of the
+      possibility of such damages.</p>
+
+    <h2 id="key"><span class="num">6.</span>Customer&rsquo;s Liability</h2>
+    <p>Your license key remains the property and copyright of RailScope. You are responsible for protecting your license
+      key against misuse or publication (in any form). You are liable for any damages resulting from the disclosure,
+      misuse, or unauthorized publication of your license key.</p>
+
+    <h2 id="warranty"><span class="num">7.</span>Warranty</h2>
+    <p>RailScope warrants that, for a period of ninety (90) days from the date of receipt, the Product will perform
+      substantially in accordance with the accompanying documentation, and that its support engineers will make
+      commercially reasonable efforts to solve any problem issues. Some jurisdictions do not allow limitations on the
+      duration of an implied warranty, so the above limitation may not apply to you.</p>
+
+    <h2 id="disclaimer"><span class="num">8.</span>Warranty Disclaimer</h2>
+    <p class="caps">EXCEPT FOR THE EXPRESS WARRANTIES SET FORTH IN THIS AGREEMENT, THE PRODUCT IS PROVIDED TO THE END
+      USER &ldquo;AS IS,&rdquo; AND RAILSCOPE EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR
+      OTHERWISE, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+      PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
+
+    <h2 id="export"><span class="num">9.</span>Export Regulations</h2>
+    <p>The Product is subject to U.S. export control laws. The Product may not be downloaded or otherwise exported or
+      re-exported (i) into, or to a national or resident of, any country to which the U.S. has embargoed goods; or
+      (ii) to anyone on the U.S. Treasury Department&rsquo;s list of Specially Designated Nationals or the U.S. Department
+      of Commerce&rsquo;s Table of Denial Orders. By using the Product, you represent and warrant that you are not located
+      in, under the control of, or a national or resident of any such country or on any such list.</p>
+
+    <h2 id="law"><span class="num">10.</span>Governing Law</h2>
+    <p>This Agreement will be governed and interpreted by and under the laws of the State of Delaware, without regard to
+      its conflict-of-laws principles. You consent to the exclusive jurisdiction of the state and federal courts located
+      in Delaware for any dispute arising out of or relating to this Agreement.</p>
+
+    <h2 id="copyright"><span class="num">11.</span>Copyright Notice</h2>
+    <p>© Copyright 2026 RailScope,&nbsp;Inc. All rights reserved. The Product is licensed, not sold. No part of the
+      Product or its documentation may be reproduced, published, transmitted, or distributed in any form without the
+      express written permission of RailScope,&nbsp;Inc.</p>
+    <p style="margin-top:22px;color:#5f6f80;font-size:14px">Questions about this Agreement? Contact
+      <a href="#" style="color:#2e6fd0;font-weight:600">legal@railscope.ai</a>.</p>
+  </article>
+</div></div>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol fbrand">
+      <img class="logo" src="RailScope_logo_white.png" alt="RailScope">
+      <p>Internet troubleshooting for everyday users. See every slowdown, dropout, and disruption — and let AI solve it.</p>
+    </div>
+    <div class="fcol"><h4>Products</h4><a href="index.html#pricing">Cloud</a><a href="index.html#pricing">Professional</a><a href="index.html#pricing">Standard</a><a href="index.html#pricing">Free</a></div>
+    <div class="fcol"><h4>Solutions</h4><a href="index.html#uses">Contact Center</a><a href="index.html#uses">Helpdesk IT</a><a href="index.html#uses">VoIP &amp; Voice</a><a href="index.html#uses">Gaming</a></div>
+    <div class="fcol"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Blog</a><a href="#">Careers</a></div>
+    <div class="fcol"><h4>Legal</h4><a href="legal.html">All policies</a><a href="legal.html">Privacy Policy</a><a href="eula.html">Desktop EULA</a><a href="legal.html">Cloud TOS</a></div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 RailScope.ai — All rights reserved.</span>
+    <span>support@railscope.ai · railscope.ai</span>
+  </div>
+</div></footer>
+
+</body>
+</html>
