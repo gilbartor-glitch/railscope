@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Information — RailScope.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f1f33;--ink:#16222f;--muted:#5f6f80;--blue:#2e6fd0;--blue-d:#225bb0;
+    --green:#2faa5e;--bg:#f5f8fc;--line:#e3ecf6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:12px 22px;border-radius:9px;cursor:pointer;border:0;transition:.15s}
+  .btn-p{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(46,111,208,.32)}
+  .btn-p:hover{background:var(--blue-d)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:30px;height:70px}
+  .nav .logo{height:26px;width:auto}
+  .nav .links{display:flex;gap:26px;font-size:15px;font-weight:600;color:#33414f}
+  .nav .links a:hover{color:var(--blue)}
+  .nav .links a.active{color:var(--blue)}
+  .nav .right{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:15px;font-weight:700}
+  .nav .right .signin{color:#33414f}
+
+  /* HEADER */
+  .lhead{background:radial-gradient(900px 360px at 75% -20%,#1d4670,transparent 55%),linear-gradient(160deg,#0f1f33,#13283f);
+         color:#fff;text-align:center;padding:70px 28px 66px}
+  .lhead .eyebrow{font-size:13px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#5b9be8}
+  .lhead h1{font-size:46px;font-weight:900;letter-spacing:-1px;margin:10px 0 8px}
+  .lhead p{font-size:18px;color:#c6d6ea}
+
+  /* LEGAL GRID */
+  .legal{padding:64px 0 30px}
+  .lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .doc{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;padding:24px;background:#fff;
+       transition:.15s;min-height:182px}
+  .doc:hover{border-color:#bcd3ee;box-shadow:0 16px 34px rgba(20,49,79,.10);transform:translateY(-2px)}
+  .doc .ic{width:42px;height:42px;border-radius:11px;background:#e9f1fd;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .doc .ic svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .doc h3{font-size:17px;font-weight:800;margin-bottom:7px}
+  .doc p{font-size:14px;color:var(--muted)}
+  .doc .read{margin-top:auto;padding-top:14px;font-size:14px;font-weight:700;color:var(--blue)}
+  .doc .read::after{content:" →"}
+
+  .note{max-width:1180px;margin:26px auto 0;padding:0 28px;font-size:13px;color:#8a97a6}
+
+  /* contact strip */
+  .lcontact{margin:54px 0 0;background:var(--bg);border-top:1px solid var(--line)}
+  .lcontact .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:34px 28px;flex-wrap:wrap}
+  .lcontact h3{font-size:22px;font-weight:800}
+  .lcontact p{font-size:15px;color:var(--muted)}
+
+  /* FOOTER */
+  footer{background:#0b1626;color:#9fb1c6;padding:56px 0 28px}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:34px}
+  .fcol h4{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#e7eef7;margin-bottom:14px}
+  .fcol a{display:block;font-size:14px;color:#9fb1c6;margin-bottom:9px}
+  .fcol a:hover{color:#fff}
+  .fbrand .logo{height:24px;margin-bottom:14px}
+  .fbrand p{font-size:14px;color:#7e93ab;max-width:260px}
+  .fbot{border-top:1px solid #1c2e42;margin-top:38px;padding-top:22px;display:flex;justify-content:space-between;font-size:13px;flex-wrap:wrap;gap:10px;color:#74879d}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav><div class="wrap nav">
+  <a href="index.html"><img class="logo" src="RailScope_logo.png" alt="RailScope"></a>
+  <div class="links">
+    <a href="index.html#features">Product</a>
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#uses">Solutions</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="legal.html" class="active">Legal</a>
+  </div>
+  <div class="right">
+    <a class="signin" href="#">Sign in</a>
+    <a class="btn btn-p" href="index.html#pricing">Start free</a>
+  </div>
+</div></nav>
+
+<!-- HEADER -->
+<header class="lhead">
+  <div class="eyebrow">Legal</div>
+  <h1>Legal Information</h1>
+  <p>Our terms and policies.</p>
+</header>
+
+<!-- LEGAL GRID -->
+<section class="legal"><div class="wrap"><div class="lgrid">
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg></div>
+    <h3>Terms of Service</h3>
+    <p>Details RailScope&rsquo;s Terms of Service on the parties&rsquo; responsibilities, rights, privacy, subscriptions, information usage, cancellation of service and so on.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><circle cx="12" cy="15" r="3"/></svg></div>
+    <h3>Terms of Service — USA</h3>
+    <p>If you are located in the USA, this details RailScope&rsquo;s Terms of Service on the parties&rsquo; responsibilities, rights, privacy, subscriptions, information usage and cancellation of service.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <h3>Privacy Policy</h3>
+    <p>Details the types of data that RailScope collects, and the mode and place of processing this data.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+    <h3>Data Processing Addendum</h3>
+    <p>Details the processing of customer personal data by RailScope on behalf of our customers.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 15v2"/></svg></div>
+    <h3>Security Measures</h3>
+    <p>Details the processes and measures taken by RailScope to maintain the overall security of the service.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><circle cx="12" cy="17" r="3"/><path d="M7 10v2a3 3 0 0 0 3 3M17 10v2a3 3 0 0 1-3 3"/></svg></div>
+    <h3>Sub-Processors List</h3>
+    <p>Details RailScope&rsquo;s sub-processors, the services they provide, and their locations.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 22h8"/></svg></div>
+    <h3>Desktop EULA</h3>
+    <p>The End User License Agreement governing your use of the RailScope Desktop application on Windows and macOS.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M18 10a6 6 0 1 0-6 6h6a4 4 0 0 0 0-8z"/><path d="M9 13l2 2 3-3"/></svg></div>
+    <h3>Cloud Terms of Service</h3>
+    <p>The terms that apply to RailScope Cloud, including multiuser access, monitoring of remote devices, and data retention.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 1 9-9c-1 0-2-.5-2-1.5S17 9 16 9s-1.5-1-1.5-2S13 5 12 4.5"/><circle cx="9" cy="11" r="1"/><circle cx="14" cy="14" r="1"/></svg></div>
+    <h3>Cookie Notice</h3>
+    <p>Details how RailScope uses cookies and similar technologies across our websites and app.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/><path d="M3 16l5 5"/></svg></div>
+    <h3>Acceptable Use Policy</h3>
+    <p>Details the conduct and usage that RailScope prohibits when accessing or testing networks through the service.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></div>
+    <h3>Service Level Agreement</h3>
+    <p>Details the uptime commitments and support response targets that apply to RailScope Cloud subscriptions.</p>
+    <span class="read">Read</span>
+  </a>
+
+  <a class="doc" href="#">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div>
+    <h3>Trust &amp; Compliance</h3>
+    <p>Information about RailScope&rsquo;s compliance posture, including GDPR, SOC 2 and data-residency commitments.</p>
+    <span class="read">Read</span>
+  </a>
+
+</div></div></section>
+
+<div class="note">Looking for a document that isn&rsquo;t listed, or need a signed copy for procurement? Email <a href="#" style="color:#2e6fd0;font-weight:600">legal@railscope.ai</a> and we&rsquo;ll help.</div>
+
+<!-- CONTACT STRIP -->
+<section class="lcontact"><div class="wrap">
+  <div>
+    <h3>Questions about our terms or your data?</h3>
+    <p>Our team is happy to walk you through any of the documents above.</p>
+  </div>
+  <a class="btn btn-p" href="#">Contact legal →</a>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol fbrand">
+      <img class="logo" src="RailScope_logo_white.png" alt="RailScope">
+      <p>Internet troubleshooting for everyday users. See every slowdown, dropout, and disruption — and let AI solve it.</p>
+    </div>
+    <div class="fcol"><h4>Products</h4><a href="index.html#pricing">Cloud</a><a href="index.html#pricing">Professional</a><a href="index.html#pricing">Standard</a><a href="index.html#pricing">Free</a></div>
+    <div class="fcol"><h4>Solutions</h4><a href="index.html#uses">Contact Center</a><a href="index.html#uses">Helpdesk IT</a><a href="index.html#uses">VoIP &amp; Voice</a><a href="index.html#uses">Gaming</a></div>
+    <div class="fcol"><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Blog</a><a href="#">Careers</a></div>
+    <div class="fcol"><h4>Legal</h4><a href="legal.html">Terms of Service</a><a href="legal.html">Privacy Policy</a><a href="legal.html">Desktop EULA</a><a href="legal.html">Cloud TOS</a></div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 RailScope.ai — All rights reserved.</span>
+    <span>support@railscope.ai · railscope.ai</span>
+  </div>
+</div></footer>
+
+</body>
+</html>
